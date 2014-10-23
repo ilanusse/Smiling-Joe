@@ -20,6 +20,7 @@ public class JoeManager : MonoBehaviour {
 	private bool isGrounded = false;
 
 	public float movementSpeed;
+	public float difficultyMultiplier = 1.2f;
 	public float rotationSpeed;
 	public float shoulderMultiplier;
 	public Transform target;
@@ -35,7 +36,13 @@ public class JoeManager : MonoBehaviour {
 		maxSqrRange = maxRange * maxRange;
 		joeTransform = transform; 
 		joeRigidBody = rigidbody;
-		InvokeRepeating( "teleportJoe", 1f, 4f );
+		var telepTime = 4f; 
+		if(Difficulty.level.Equals("hard")) {
+			movementSpeed = movementSpeed * difficultyMultiplier;
+			rotationSpeed = rotationSpeed * difficultyMultiplier;
+			telepTime = telepTime / difficultyMultiplier;
+		}
+		InvokeRepeating( "teleportJoe", 1f, telepTime );
 	}
 
 	void Update () {
