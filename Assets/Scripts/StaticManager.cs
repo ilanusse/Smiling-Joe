@@ -16,6 +16,9 @@ public class StaticManager : MonoBehaviour {
 	public float miniShockDuration;
 	public Material staticMaterial;
 	public Material miniShockMaterial;
+	public JumpScareManager jumpScareManager;
+	public AudioClip miniShockAudio;
+	public AudioClip staticAudio;
 
 	void Start () {
 		staticRenderer = renderer;
@@ -40,6 +43,9 @@ public class StaticManager : MonoBehaviour {
 	}	
 
 	private void startShock() {
+		if(!inShock) {
+			startMiniShockAudio();
+		}
 		shockDurationTimer += Time.deltaTime;
 		staticRenderer.material = miniShockMaterial;
 		setMaterialsAlpha(1f);
@@ -47,6 +53,9 @@ public class StaticManager : MonoBehaviour {
 	}
 	
 	private void stopShock() {
+		if(inShock){
+			stopMiniShockAudio();
+		}
 		shockDurationTimer = 0f;
 		setMaterialsAlpha(0f);
 		inShock = false;
@@ -55,21 +64,28 @@ public class StaticManager : MonoBehaviour {
 	}
 
 	public void increaseStatic(float insightHealthTime) {
-		staticTimer += Time.deltaTime;
+		staticTimer += Time.deltaTime; 
 		if(!hasStatic) {
+			jumpScareManager.playJumpScare();
+			startStaticAudio();
 			hasStatic = true;
 			staticRenderer.material = staticMaterial;
 			setMaterialsAlpha(0f);
 		}
 		setMaterialsAlpha(staticTimer/insightHealthTime);
+		animateStatic();
 	}
 
 	public void reduceStatic(float insightHealthTime) {
 		if(staticTimer > 0) {
 			staticTimer -= Time.deltaTime;
 			setMaterialsAlpha(staticTimer/insightHealthTime);
+			animateStatic();
 		} else {
-			hasStatic = false;
+			if(hasStatic){
+				hasStatic = false;
+				stopStaticAudio();
+			}
 		}
 	}
 
@@ -77,5 +93,31 @@ public class StaticManager : MonoBehaviour {
 		Color color = staticRenderer.material.color;
 		color.a = value;
 		staticRenderer.material.color = color;
+	}
+	
+	private void animateStatic() {
+		float randomX = Random.value;
+		float randomY = Random.value;
+		staticRenderer.material.mainTextureOffset = new Vector2(randomX, randomY);
+	}
+	
+	public void startMiniShockAudio() {
+		audio.volume = 1f;
+		audio.clip = miniShockAudio;
+		audio.Play();
+	}
+	
+	public void stopMiniShockAudio() {
+		audio.Stop();
+	}
+	
+	public void startStaticAudio() {
+		audio.volume = 0.2f;
+		audio.clip = staticAudio;
+		audio.Play();
+	}
+	
+	public void stopStaticAudio() {
+		audio.Stop();
 	}
 }

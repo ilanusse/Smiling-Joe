@@ -83,13 +83,11 @@ public class JoeManager : MonoBehaviour {
 
 		if(Physics.Raycast(leftShoulder, joeTransform.forward, out hit, rayDistance)) {
 			if(hit.collider.gameObject.name != floor.name) {
-				Debug.Log(hit.collider.gameObject.name);
 				Debug.DrawLine( leftShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}
 		} else if(Physics.Raycast(rightShoulder, joeTransform.forward, out hit, rayDistance)) {
 			if(hit.collider.gameObject.name != floor.name) {
-				Debug.Log(hit.collider.gameObject.name);
 				Debug.DrawLine( rightShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}

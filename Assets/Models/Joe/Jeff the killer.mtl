@@ -1,0 +1,192 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 23.08.2014 13:55:42
+
+newmtl Material__376
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Hair.tga
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Hair.tga
+
+newmtl Material__235
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_hoodie.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_hoodie.png
+
+newmtl Material__148
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Pants.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Pants.png
+
+newmtl Material__161
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Pants.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_Pants.png
+
+newmtl Material__187
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_ShirtShoes.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_ShirtShoes.png
+
+newmtl Material__123
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\eyeball_l.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\eyeball_l.png
+
+newmtl Material__110
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\eyeball_r.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\eyeball_r.png
+
+newmtl head_brawler_head_normal
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Material__14
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+
+newmtl Material__1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_head_d.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_head_d.png
+
+newmtl Material__26
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+
+newmtl Material__391
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\char_prisonermonster_d.tga
+
+newmtl Material__361
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_hoodie.png
+	map_Kd C:\Users\ITG\Desktop\Jeff The Killer\_PROJECT FILES\Jeff the Killer\TEX\Jeff_hoodie.png
+
+newmtl wire_174186203
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.6824 0.7294 0.7961
+	Kd 0.6824 0.7294 0.7961
+	Ks 0.3500 0.3500 0.3500
