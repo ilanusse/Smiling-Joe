@@ -27,7 +27,7 @@ public class JoeManager : MonoBehaviour {
 	public float maxRange;
 	public float minRange;
 	public float rayDistance;
-	public GameObject floor;
+	public GameObject[] floorBlocks;
 	public HealthManager playerHealth;
 	public StaticManager staticManager;
 
@@ -74,9 +74,12 @@ public class JoeManager : MonoBehaviour {
 
 				RaycastHit hit;
 				if(Physics.Raycast(terrainPosCheck, Vector3.down, out hit, Mathf.Infinity)) {
-					if(hit.collider.gameObject.name == floor.name) {
-						joeTransform.position = hit.point + new Vector3(0f, 0.25f, 0f);
+					foreach(GameObject floor in floorBlocks) {
+						if(hit.collider.gameObject.name == floor.name) {
+							joeTransform.position = hit.point + new Vector3(0f, 0.25f, 0f);
+						}
 					}
+
 				}
 			}	
 		}
@@ -89,12 +92,24 @@ public class JoeManager : MonoBehaviour {
 		Vector3 rightShoulder = joeTransform.position + (joeTransform.right * shoulderMultiplier);
 
 		if(Physics.Raycast(leftShoulder, joeTransform.forward, out hit, rayDistance)) {
-			if(hit.collider.gameObject.name != floor.name) {
+			bool floorCollide = false;
+			foreach(GameObject floor in floorBlocks) { 
+				if(hit.collider.gameObject.name == floor.name) {
+					floorCollide = true;
+				}
+			}
+			if(!floorCollide) {
 				Debug.DrawLine( leftShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}
 		} else if(Physics.Raycast(rightShoulder, joeTransform.forward, out hit, rayDistance)) {
-			if(hit.collider.gameObject.name != floor.name) {
+			bool floorCollide = false;
+			foreach(GameObject floor in floorBlocks) { 
+				if(hit.collider.gameObject.name == floor.name) {
+					floorCollide = true;
+				}
+			}
+			if(!floorCollide) {
 				Debug.DrawLine( rightShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}
@@ -147,14 +162,18 @@ public class JoeManager : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision col) {
-		if( col.collider.gameObject.name == floor.name) {
-			isGrounded = true;
+		foreach (GameObject floor in floorBlocks) {
+			if (col.collider.gameObject.name == floor.name) {
+				isGrounded = true;
+			}
 		}
 	}
 
 	void OnCollisionExit(Collision col) {
-		if( col.collider.gameObject.name == floor.name) {
-			isGrounded = false;
+		foreach(GameObject floor in floorBlocks) {
+			if( col.collider.gameObject.name == floor.name) {
+				isGrounded = false;
+			}
 		}
 	}
 
