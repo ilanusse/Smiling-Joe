@@ -26,7 +26,7 @@ public class FlashlightManager : MonoBehaviour {
 	public float batteryDecreaseRate;
 	
 	void Start () {
-		state = FlashlightState.off;
+		state = FlashlightState.on;
 		lightTimer = 0f;
 		flickerTimer = 0f;
 		batteryDecreaseTimer = 0f;

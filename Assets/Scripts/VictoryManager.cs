@@ -7,12 +7,11 @@ public class VictoryManager : MonoBehaviour
 	public GameObject videoTape;
 	public GameObject car;
 	public KeyCode actionKey;
-
 	public float minSqrDistance;
 
 	private bool videoTapeCollected;
 	private bool womanFound;
-	// Use this for initialization
+	
 	void Start () {
 		womanFound = false;
 		videoTapeCollected = false;
@@ -34,6 +33,7 @@ public class VictoryManager : MonoBehaviour
 
 	void findVideoTape() {
 		videoTapeCollected = true;
+		Destroy(videoTape);
 	}
 
 	void womanSearch() {
@@ -49,13 +49,15 @@ public class VictoryManager : MonoBehaviour
 	}
 
 	void videoTapeSearch() {
-		float sqrDistance = (videoTape.transform.position - transform.position).sqrMagnitude;
-		if (!videoTapeCollected && sqrDistance < minSqrDistance) {
-			RaycastHit hit;
-			if (Physics.Linecast (transform.position, videoTape.transform.position, out hit)) {
-				if (hit.collider.gameObject.name == videoTape.name && Input.GetKeyDown(actionKey)) {
-					findVideoTape();
-				}				
+		if(!videoTapeCollected) {
+			float sqrDistance = (videoTape.transform.position - transform.position).sqrMagnitude;
+			if (sqrDistance < minSqrDistance) {
+				RaycastHit hit;
+				if (Physics.Linecast (transform.position, videoTape.transform.position, out hit)) {
+					if (hit.collider.gameObject.name == videoTape.name && Input.GetKeyDown(actionKey)) {
+						findVideoTape();
+					}				
+				}
 			}
 		}
 	}
