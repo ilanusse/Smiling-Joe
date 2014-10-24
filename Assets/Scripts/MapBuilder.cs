@@ -3,16 +3,24 @@ using System.Collections;
 
 public class MapBuilder : MonoBehaviour {
 
-	public GameObject block;
-	public GameObject block2;
+	public GameObject[] blocks;
 	// Use this for initialization
 	void Start () {
-		block.transform.position = new Vector3 (0f, 10f, 0f);
-		block2.transform.position = new Vector3 (-1000f, 10f, 0f);
+		randomizeArray();
+		blocks[0].transform.position = new Vector3 (0f, 10f, 0f);
+		blocks[1].transform.position = new Vector3 (-1000f, 10f, 0f);
+		blocks[2].transform.position = new Vector3(0f, 10f, 1000f);
+		blocks[3].transform.position = new Vector3(-1000f, 10f, 1000f);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void randomizeArray(){
+		for (int i = 0; i < blocks.Length; i++){
+			swap(i, Random.Range(i,blocks.Length));
+		}
+	}
+	void swap(int i1, int i2){
+		var temp = blocks[i1];
+		blocks[i1] = blocks[i2];
+		blocks[i2] = temp;
 	}
 }
