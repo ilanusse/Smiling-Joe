@@ -17,8 +17,8 @@ public class JoeManager : MonoBehaviour {
 	private Transform joeTransform;
 	private Vector3 joeVelocity;
 	private Rigidbody joeRigidBody;
-	private bool isGrounded = false;
 
+	public float telepTime = 30f;
 	public float movementSpeed;
 	public float difficultyMultiplier = 1.2f;
 	public float rotationSpeed;
@@ -35,14 +35,13 @@ public class JoeManager : MonoBehaviour {
 		minSqrRange = minRange * minRange;
 		maxSqrRange = maxRange * maxRange;
 		joeTransform = transform; 
-		joeRigidBody = rigidbody;
-		var telepTime = 4f; 
+		joeRigidBody = rigidbody; 
 		if(Difficulty.level.Equals("hard")) {
 			movementSpeed = movementSpeed * difficultyMultiplier;
 			rotationSpeed = rotationSpeed * difficultyMultiplier;
 			telepTime = telepTime / difficultyMultiplier;
 		}
-		InvokeRepeating( "teleportJoe", 1f, telepTime );
+		InvokeRepeating( "teleportJoe", 40f, telepTime );
 	}
 
 	void Update () {
@@ -72,10 +71,13 @@ public class JoeManager : MonoBehaviour {
 				Vector3 terrainPosCheck = target.position + (randDir * target.right * teleportDistance);
 				terrainPosCheck.y = 1000f;
 
+				Debug.Log ("weee quiero tpear");
 				RaycastHit hit;
 				if(Physics.Raycast(terrainPosCheck, Vector3.down, out hit, Mathf.Infinity)) {
+					Debug.Log(hit.collider.gameObject.name);
 					foreach(GameObject floor in floorBlocks) {
 						if(hit.collider.gameObject.name == floor.name) {
+							Debug.Log ("teleportando a " + hit.collider.gameObject.name); 
 							joeTransform.position = hit.point + new Vector3(0f, 0.25f, 0f);
 						}
 					}
@@ -95,10 +97,11 @@ public class JoeManager : MonoBehaviour {
 			bool floorCollide = false;
 			foreach(GameObject floor in floorBlocks) { 
 				if(hit.collider.gameObject.name == floor.name) {
+ 
 					floorCollide = true;
 				}
 			}
-			if(!floorCollide) {
+			if(!floorCollide) { 
 				Debug.DrawLine( leftShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}
@@ -109,7 +112,7 @@ public class JoeManager : MonoBehaviour {
 					floorCollide = true;
 				}
 			}
-			if(!floorCollide) {
+			if(!floorCollide) { 
 				Debug.DrawLine( rightShoulder, hit.point, Color.red );
 				lookDir += hit.normal * 20f;
 			}
@@ -127,9 +130,7 @@ public class JoeManager : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (isGrounded) {
-			joeRigidBody.velocity = joeVelocity;
-		}
+		joeRigidBody.velocity = joeVelocity;
 	}
 	
 	private void joeDecisions() {
@@ -157,22 +158,6 @@ public class JoeManager : MonoBehaviour {
 				joeState = JoeState.Chasing;
 			} else {
 				joeState = JoeState.Idle;
-			}
-		}
-	}
-	
-	void OnCollisionEnter(Collision col) {
-		foreach (GameObject floor in floorBlocks) {
-			if (col.collider.gameObject.name == floor.name) {
-				isGrounded = true;
-			}
-		}
-	}
-
-	void OnCollisionExit(Collision col) {
-		foreach(GameObject floor in floorBlocks) {
-			if( col.collider.gameObject.name == floor.name) {
-				isGrounded = false;
 			}
 		}
 	}
