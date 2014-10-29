@@ -148,6 +148,7 @@ public class JoeManager : MonoBehaviour {
 						staticManager.increaseStatic(playerHealth.inSightHealthTime);
 						joeState = JoeState.Idle;
 					} else {
+						staticManager.reduceStatic(playerHealth.inSightHealthTime);
 						joeState = JoeState.Chasing;
 					}
 				}

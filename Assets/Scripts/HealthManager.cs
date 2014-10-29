@@ -5,15 +5,11 @@ public class HealthManager : MonoBehaviour {
 
 	private float healthTimer;
 	public float inSightHealthTime;
+	public VictoryManager victoryManager;
 
 	// Use this for initialization
 	void Start () {
 		healthTimer = 0f;	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void decreaseHealth() {
@@ -24,6 +20,6 @@ public class HealthManager : MonoBehaviour {
 	}
 
 	private void die() {
-		Application.LoadLevel ("menu");
+		victoryManager.playerDied ();
 	}
 }

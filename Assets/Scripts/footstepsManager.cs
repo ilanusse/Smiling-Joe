@@ -14,7 +14,8 @@ public class footstepsManager : MonoBehaviour {
 	private CharacterController characterController;
 	private CharacterMotor characterMotor;
 	private bool isRunning;
-	
+
+	public VictoryManager victoryManager;
 	public StaminaManager staminaManager;
 	public float walkSpeed;
 	public float runSpeed;
@@ -34,14 +35,15 @@ public class footstepsManager : MonoBehaviour {
 	}
 	
 	void Update() {
-		hasStamina = staminaManager.getHasStamina();
-		SetSpeed();
-		
-		if ( characterController.isGrounded ) {
-			PlayFootsteps();
-		} else {
-			walkAudioTimer = 1000f;
-			runAudioTimer = 1000f;
+		if (!victoryManager.hasGameEnded()) {
+			hasStamina = staminaManager.getHasStamina ();
+			SetSpeed ();
+			if (characterController.isGrounded) {
+				PlayFootsteps ();
+			} else {
+				walkAudioTimer = 1000f;
+				runAudioTimer = 1000f;
+			}
 		}
 	}
 	

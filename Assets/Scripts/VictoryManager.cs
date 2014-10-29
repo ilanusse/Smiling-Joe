@@ -17,6 +17,9 @@ public class VictoryManager : MonoBehaviour
 	public GameObject player;
 	public GameObject ambienceMusic;
 	public float redirectDuration;
+	public AudioClip winningMusic;
+	public AudioClip losingMusic;
+	public Material losingMaterial;
 
 	private bool videoTapeCollected;
 	private bool womanFound;
@@ -64,6 +67,8 @@ public class VictoryManager : MonoBehaviour
 		endingText.text = "THE END";
 		finisherRenderer.material = winningMaterial;
 		setMaterialsAlpha (fadeTimer / fadeDuration);
+		audio.clip = winningMusic;
+		audio.Play ();
 	}
 
 	void findWoman() {
@@ -128,5 +133,15 @@ public class VictoryManager : MonoBehaviour
 	public bool hasGameEnded() {
 		return gameEnded;
 	}
-}
 
+	public void playerDied() {
+		gameEnded = true;
+		ambienceMusic.audio.Stop ();
+		endingText.text = "YOU DIED";
+		endingText.color = new Color(0.5568f, 0.2118f, 0.2118f, 0.0f);
+		finisherRenderer.material = losingMaterial;
+		setMaterialsAlpha (fadeTimer / fadeDuration);
+		audio.clip = losingMusic;
+		audio.Play ();
+	}
+}
