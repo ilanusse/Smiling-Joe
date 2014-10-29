@@ -54,7 +54,7 @@ public class VictoryManager : MonoBehaviour
 			if (sqrDistance < minSqrDistance) {
 				RaycastHit hit;
 				if (Physics.Linecast (transform.position, videoTape.transform.position, out hit)) {
-					if (hit.collider.gameObject.name == videoTape.name && Input.GetKeyDown(actionKey)) {
+					if (hit.collider.gameObject.name == videoTape.name && Input.GetKey(actionKey)) {
 						findVideoTape();
 					}				
 				}
@@ -67,7 +67,7 @@ public class VictoryManager : MonoBehaviour
 		if (videoTapeCollected && womanFound && sqrDistance < minSqrDistance) {
 			RaycastHit hit;
 			if (Physics.Linecast (transform.position, car.transform.position, out hit)) {
-				if (hit.collider.gameObject.name == car.name && Input.GetKeyDown(actionKey)) {
+				if (hit.collider.gameObject.name == car.name && Input.GetKey(actionKey)) {
 						endGame();
 				}				
 			}

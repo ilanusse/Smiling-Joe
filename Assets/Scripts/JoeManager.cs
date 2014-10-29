@@ -71,10 +71,8 @@ public class JoeManager : MonoBehaviour {
 				Vector3 terrainPosCheck = target.position + (randDir * target.right * teleportDistance);
 				terrainPosCheck.y = 1000f;
 
-				Debug.Log ("weee quiero tpear");
 				RaycastHit hit;
 				if(Physics.Raycast(terrainPosCheck, Vector3.down, out hit, Mathf.Infinity)) {
-					Debug.Log(hit.collider.gameObject.name);
 					foreach(GameObject floor in floorBlocks) {
 						if(hit.collider.gameObject.name == floor.name) {
 							Debug.Log ("teleportando a " + hit.collider.gameObject.name); 

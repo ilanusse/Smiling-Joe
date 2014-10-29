@@ -24,6 +24,6 @@ public class HealthManager : MonoBehaviour {
 	}
 
 	private void die() {
-		Destroy(gameObject);
+		Application.LoadLevel ("menu");
 	}
 }
