@@ -24,7 +24,7 @@ public class FlashlightManager : MonoBehaviour {
 	public float batteryLife;
 	public float batteryConsumption;
 	public float batteryDecreaseRate;
-	
+	public bool forPlayer; 	
 	void Start () {
 		state = FlashlightState.on;
 		lightTimer = 0f;
@@ -84,14 +84,16 @@ public class FlashlightManager : MonoBehaviour {
 	}
 
 	private void checkInput () {
-		if(Input.GetMouseButtonDown(0)) {
-			if(state == FlashlightState.off) {
-				lightTimer = 0f;
-				light.intensity = currentMaxLightIntensity;
-				state = FlashlightState.on;
-			} else {
-				state = FlashlightState.off;
-			}	
+		if(forPlayer){
+			if(Input.GetMouseButtonDown(0)) {
+				if(state == FlashlightState.off) {
+					lightTimer = 0f;
+					light.intensity = currentMaxLightIntensity;
+					state = FlashlightState.on;
+				} else {
+					state = FlashlightState.off;
+				}	
+			}
 		}
 	}
 }
