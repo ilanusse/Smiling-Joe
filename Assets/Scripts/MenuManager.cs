@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DifficultyManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour {
+
+	public GameObject ambienceMusic;
 
 	public void setDifficultyHard() {
 		Difficulty.level = "hard";
@@ -13,5 +15,9 @@ public class DifficultyManager : MonoBehaviour {
 	
 	public void exitGame() {
 		Application.Quit();
+	}
+
+	public void playGame() {
+		ambienceMusic.audio.Stop ();
 	}
 }
