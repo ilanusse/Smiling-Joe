@@ -18,11 +18,11 @@ public class StoryManager : MonoBehaviour {
 	void Update () {
 		if (!audio.isPlaying) {
 			pageNumber ++;
-			if (pageNumber == pages.Length) {
-				//jump to game
-			} else {
+			if (pageNumber < pages.Length) {
 				changePage ();
-			}
+			} else if (pageNumber == pages.Length) {
+				Application.LoadLevel ("main");
+			} 
 		}
 	}
 

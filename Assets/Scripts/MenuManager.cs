@@ -20,4 +20,8 @@ public class MenuManager : MonoBehaviour {
 	public void playGame() {
 		ambienceMusic.audio.Stop ();
 	}
+
+	public void skipStory() {
+		Application.LoadLevel ("main");
+	}
 }
