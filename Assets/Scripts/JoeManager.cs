@@ -9,7 +9,7 @@ public class JoeManager : MonoBehaviour {
 		Chasing
 	}
 	
-	public bool isVisible = false;
+	private bool isVisible = false;
 	private float offScreenDot = 0.75f;
 	private float maxSqrRange;
 	private float minSqrRange;
@@ -30,6 +30,7 @@ public class JoeManager : MonoBehaviour {
 	public GameObject[] floorBlocks;
 	public HealthManager playerHealth;
 	public StaticManager staticManager;
+	public VictoryManager victoryManager;
 
 	void Start () {
 		minSqrRange = minRange * minRange;
@@ -45,16 +46,17 @@ public class JoeManager : MonoBehaviour {
 	}
 
 	void Update () {
-		joeDecisions();
-		switch(joeState) {
+		if (!victoryManager.hasGameEnded()) {
+			joeDecisions ();
+			switch (joeState) {
 			case JoeState.Idle:
-
 				joeVelocity = Vector3.zero;
-				joeTransform.LookAt(target);
+				joeTransform.LookAt (target);
 				break;
 			case JoeState.Chasing:
-				moving((target.position - joeTransform.position).normalized);
+				moving ((target.position - joeTransform.position).normalized);
 				break;
+			}
 		}
 	}
 

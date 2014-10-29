@@ -13,6 +13,7 @@ public class AmbienceSoundManager : MonoBehaviour {
 	public float maxSoundInterval;
 	public float minLaughInterval;
 	public float maxLaughInterval;
+	public VictoryManager victoryManager;
 
 	// Use this for initialization
 	void Start () {
@@ -24,10 +25,12 @@ public class AmbienceSoundManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		laughTimer += Time.deltaTime;
-		randomSoundTimer += Time.deltaTime;
-		playLaugh();
-		playRandomSound();
+		if (!victoryManager.hasGameEnded()) {
+			laughTimer += Time.deltaTime;
+			randomSoundTimer += Time.deltaTime;
+			playLaugh ();
+			playRandomSound ();
+		}
 	}
 	
 	private void playLaugh() {

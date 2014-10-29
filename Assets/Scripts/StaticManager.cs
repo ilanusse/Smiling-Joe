@@ -3,7 +3,6 @@ using System.Collections;
 
 public class StaticManager : MonoBehaviour {
 
-	private Renderer staticRenderer;
 	private float staticTimer;
 	private float shockTimer;
 	private bool hasStatic;
@@ -11,6 +10,7 @@ public class StaticManager : MonoBehaviour {
 	private float shockDurationTimer;
 	private bool inShock;
 
+	public Renderer staticRenderer;
 	public float minShockInterval;
 	public float maxShockInterval;
 	public float miniShockDuration;
@@ -19,9 +19,9 @@ public class StaticManager : MonoBehaviour {
 	public JumpScareManager jumpScareManager;
 	public AudioClip miniShockAudio;
 	public AudioClip staticAudio;
+	public VictoryManager victoryManager;
 
 	void Start () {
-		staticRenderer = renderer;
 		setMaterialsAlpha(0f);
 		shockDurationTimer = 0f;
 		shockTimer = 0f;
@@ -30,18 +30,19 @@ public class StaticManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		shockTimer += Time.deltaTime;
-		if( shockTimer >= randomShockInterval) {
-			if(!hasStatic) {
-				if(shockDurationTimer <= miniShockDuration){
-					startShock();
-				} else {
-					stopShock();
+		if (!victoryManager.hasGameEnded ()) {
+			shockTimer += Time.deltaTime;
+			if (shockTimer >= randomShockInterval) {
+				if (!hasStatic) {
+					if (shockDurationTimer <= miniShockDuration) {
+						startShock ();
+					} else {
+						stopShock ();
+					}
 				}
 			}
-		}
-	}	
-
+		}	
+	}
 	private void startShock() {
 		if(!inShock) {
 			startMiniShockAudio();
