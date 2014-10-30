@@ -6,8 +6,6 @@ public class HealthManager : MonoBehaviour {
 	private float healthTimer;
 	public float inSightHealthTime;
 	public VictoryManager victoryManager;
-	public TipManager tipManager;
-
 
 	// Use this for initialization
 	void Start () {
