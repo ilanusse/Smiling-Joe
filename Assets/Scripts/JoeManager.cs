@@ -130,7 +130,8 @@ public class JoeManager : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		joeRigidBody.velocity = joeVelocity;
+		float y = joeRigidBody.velocity.y;
+		joeRigidBody.velocity = new Vector3(joeVelocity.x, y, joeVelocity.z);
 	}
 	
 	private void joeDecisions() {
