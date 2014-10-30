@@ -20,6 +20,7 @@ public class VictoryManager : MonoBehaviour
 	public AudioClip winningMusic;
 	public AudioClip losingMusic;
 	public Material losingMaterial;
+	public TipManager tipManager;
 
 	private bool videoTapeCollected;
 	private bool womanFound;
@@ -73,11 +74,21 @@ public class VictoryManager : MonoBehaviour
 
 	void findWoman() {
 		womanFound = true;
+		if (videoTapeCollected) {
+			tipManager.showTip ("get back to the van");
+		} else {
+			tipManager.showTip ("Find lauras video camera");
+		}
 	}
 
 	void findVideoTape() {
 		videoTapeCollected = true;
 		Destroy(videoTape);
+		if (womanFound) {
+			tipManager.showTip ("get back to the van");
+		} else {
+			tipManager.showTip ("you foud Lauras camera, find her");
+		}
 	}
 
 	void womanSearch() {
