@@ -120,8 +120,7 @@ public class JoeManager : MonoBehaviour {
 			Debug.DrawRay( leftShoulder, joeTransform.forward * rayDistance, Color.yellow );
 			Debug.DrawRay( rightShoulder, joeTransform.forward * rayDistance, Color.yellow );
 		}
-		if ( joeRigidBody.velocity.sqrMagnitude < 1.75 )
-		{
+		if ( joeRigidBody.velocity.sqrMagnitude < 1.75 ) {
 			lookDir += joeTransform.right * 20f;
 		}
 		Quaternion lookRot = Quaternion.LookRotation(lookDir);
@@ -140,6 +139,7 @@ public class JoeManager : MonoBehaviour {
 		if (isVisible) {
 			if (sqrDistance > maxSqrRange) {
 				joeState = JoeState.Chasing;
+				staticManager.reduceStatic(playerHealth.inSightHealthTime);
 			} else {
 				RaycastHit hit;
 				if (Physics.Linecast(joeTransform.position, target.position, out hit)) {
